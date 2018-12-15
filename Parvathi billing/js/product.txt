@@ -1,0 +1,66 @@
+var productName=new Array();
+var customerName=new Array();
+var quantityValues=new Array();//renamed to names -added an S- 
+                      //to avoid conflicts with the input named "name"
+var priceValues=new Array();
+var totalprice=new Array();
+var grandprice=new Array();
+var list = 2;
+
+function insert(){
+    var productNameValue = document.getElementById('productName').value;
+    var customerNameValue = document.getElementById('customerName').value;
+    var quantityValue = document.getElementById('quantityValue').value;
+    var priceValue = document.getElementById('price').value;
+    productName[productName.length]=productNameValue;
+    customerName[customerName.length]=customerNameValue;
+    quantityValues[quantityValues.length]=quantityValue;
+    priceValues[priceValues.length]=priceValue;
+
+    list+=1;
+
+    show();
+  }
+  function show() {
+  var product="";
+  var total="";
+  var quantity="";
+  var customer="";
+  var price="";
+  var sno="";
+  var totalprice="";
+  var grandtotal=0;
+  var grandprice=0;
+  for(var i = 1; i < list-1; i++) {
+     sno += i + "<br>";
+  }
+  for(var i = 0; i < productName.length; i++) {
+     product +=productName[i]+"<br>";
+  }
+   for(var i = 0; i < customerName.length; i++) {
+     customer = customerName[i]+"<br>";
+  }
+  for(var i = 0; i < quantityValues.length; i++) {
+     quantity += quantityValues[i]+"<br>";
+  }
+  for(var i = 0; i < priceValues.length; i++) {
+     price += priceValues[i]+"<br>";
+  }
+  for(var i = 0; i < priceValues.length; i++) {
+     total = quantityValues[i] * priceValues[i];
+     totalprice += total +"<br>";
+  }
+  for(var i = 0; i < priceValues.length; i++) {
+     grandprice += quantityValues[i] * priceValues[i];
+  }
+  
+  grandtotal += grandprice;
+  document.getElementById('customer').innerHTML = customer;
+  document.getElementById('sno').innerHTML = sno ;
+  document.getElementById('product').innerHTML = product;
+  document.getElementById('quantity').innerHTML = quantity;
+  document.getElementById('priceValue').innerHTML = price;
+  document.getElementById('totalprice').innerHTML = totalprice;
+  document.getElementById('grandtotal').innerHTML = grandtotal;
+}
+
